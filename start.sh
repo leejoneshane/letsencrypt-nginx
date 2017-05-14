@@ -7,8 +7,8 @@ fi
 
 # Initial certificate request, but skip if cached
 if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
-  certbot --nginx \
-   --webroot --webroot-path=/usr/share/nginx/html \
+  certbot certonly --webroot \
+   --webroot-path=/usr/share/nginx/html \
    --domain ${DOMAIN} \
    --email "${EMAIL}" --agree-tos
 fi
