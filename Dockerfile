@@ -11,7 +11,7 @@ VOLUME /etc/nginx/conf.d
 
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD crontab /var/spool/cron/crontabs/certbot-renew
-ADD start.sh /start.sh
+ADD gencerts.sh /gencerts.sh
 
 EXPOSE 80 443
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
