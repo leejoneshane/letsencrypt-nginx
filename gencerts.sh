@@ -14,5 +14,3 @@ if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
 fi
 
 /usr/bin/sed -i "s/\<domain\>/${DOMAIN}/g" /etc/nginx/conf.d/default.conf
-
-nginx -g daemon off;
