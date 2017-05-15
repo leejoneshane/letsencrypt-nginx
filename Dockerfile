@@ -4,7 +4,7 @@ RUN apk update  \
     && rm -rf /var/cache/apk/*
 
 ENV MAIL your@mail.addr
-ENV DOMAIN sever.tld
+ENV DOMAIN server.tld
 
 VOLUME /etc/letsencrypt
 VOLUME /etc/nginx/conf.d
