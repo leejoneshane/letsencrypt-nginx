@@ -1,6 +1,6 @@
 FROM nginx:alpine
 RUN apk update  \
-    && apk add --no-cache certbot acme-client \
+    && apk add --no-cache certbot acme-client openssl ca-certificates \
     && rm -rf /var/cache/apk/*
 
 ENV MAIL your@mail.addr
