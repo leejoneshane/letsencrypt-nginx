@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Generate strong DH parameters, if they don't already exist.
-if [ ! -f /etc/ssl/dhparams.pem ]; then
+if [ ! -f /etc/nginx/conf.d/dhparams.pem ]; then
    openssl dhparam -out /etc/nginx/conf.d/dhparams.pem 2048
 fi
 
