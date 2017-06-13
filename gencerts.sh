@@ -13,4 +13,4 @@ if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
    --email "${EMAIL}" --agree-tos
 fi
 
-/usr/bin/sed -i "s/\<domain\>/${DOMAIN}/g" /etc/nginx/conf.d/default.conf
+sed -i "s/\<domain\>/${DOMAIN}/g" /etc/nginx/conf.d/default.conf
