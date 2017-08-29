@@ -11,6 +11,8 @@ if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
    --webroot-path=/usr/share/nginx/html \
    --domain ${DOMAIN} \
    --email "${EMAIL}" --agree-tos
+else
+  certbot renew
 fi
 
 sed -i "s/\<domain\>/${DOMAIN}/g" /etc/nginx/conf.d/default.conf
