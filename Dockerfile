@@ -14,4 +14,4 @@ ADD crontab /var/spool/cron/crontabs/certbot-renew
 ADD gencerts.sh /gencerts.sh
 
 EXPOSE 80 443
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD nginx -g 'daemon off;'
