@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Generate strong DH parameters, if they don't already exist.
-if [ ! -f /etc/nginx/conf.d/dhparams.pem ]; then
-   openssl dhparam -out /etc/nginx/conf.d/dhparams.pem 2048
+if [ ! -f /etc/nginx/conf.d/dhparam.pem ]; then
+   openssl dhparam -out /etc/nginx/conf.d/dhparam.pem 2048
 fi
 
 # Initial certificate request, but skip if cached
@@ -15,4 +15,4 @@ else
   certbot renew
 fi
 
-sed -i "s/\<domain\>/${DOMAIN}/g" /etc/nginx/conf.d/default.conf
+sed -i "s/\<DOMAIN\>/${DOMAIN}/g" /etc/nginx/conf.d/default.conf
