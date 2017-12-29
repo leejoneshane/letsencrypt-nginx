@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-ENV MAIL your@mail.addr
+ENV EMAIL your@mail.addr
 ENV DOMAIN server.tld
 
 ADD default.conf /etc/nginx/conf.d/default.conf
@@ -12,7 +12,7 @@ ADD entrypoint.sh /entrypoint.sh
 RUN apk update  \
     && apk add --no-cache certbot acme-client openssl ca-certificates \
     && rm -rf /var/cache/apk/* \
-    && chmod 711 /gencerts.sh
+    && chmod 711 /entrypoint.sh
 
 VOLUME /etc/letsencrypt
 VOLUME /etc/nginx/conf.d
