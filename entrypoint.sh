@@ -22,4 +22,6 @@ else
 fi
 
 sed -i "s/\<DOMAIN\>/${DOMAIN}/g" /etc/nginx/conf.d/default.conf
+sed -i "s/\<DOMAIN\>/${DOMAIN}/g" /etc/nginx/example/nextcloud.conf
+sed -i "s/\<DOMAIN\>/${DOMAIN}/g" /etc/nginx/example/openldap.conf
 nginx -g 'daemon off;'
