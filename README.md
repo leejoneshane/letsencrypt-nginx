@@ -6,10 +6,10 @@ This is a docker image, contained nginx with LET'S ENCRYPT SSL Certification bas
 
 To get LET'S ENCRYPT SSL certificate, you need to add DNS A or AAAA record for your website. Then you should expose 80 & 443 ports and give the environment variables DOMAIN & EMAIL, when you run the container, command like below:
 ```
-docker run -e DOMAIN=your.web.site.fqdn -e EMAIL=your.email ...... -d leejoneshane/letsnginx
+docker run -e DOMAIN=your.web.site.fqdn -e EMAIL=your.email -p 80:80 -p 443:443...... -d leejoneshane/letsnginx
 ```
 
-In first time running, the container will automatic get SSL certificate for you, then renew the SSL certificate automatic by cron job. If you want to change renew interval, please edit the file at /var/spool/cron/crontabs/certbot-renew.
+In the first time running, the container will automatic get SSL certificate for you, and automatic renew the SSL certificate  by cron job. If you want to change the renew interval, please edit the file at /var/spool/cron/crontabs/certbot-renew.
 
 To store the certificate and website files persistent, you need to mount host folders to the container volume.
 
