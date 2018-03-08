@@ -12,7 +12,8 @@ ADD entrypoint.sh /entrypoint.sh
 RUN apk update  \
     && apk add --no-cache certbot acme-client openssl ca-certificates \
     && rm -rf /var/cache/apk/* \
-    && chmod 711 /entrypoint.sh
+    && chmod 711 /entrypoint.sh \
+    && mkdir -p /usr/share/nginx/html/.well-known/acme-challagme
 
 VOLUME /etc/letsencrypt
 VOLUME /etc/nginx/conf.d
