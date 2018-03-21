@@ -18,4 +18,4 @@ RUN apk update  \
 VOLUME /etc/letsencrypt
 VOLUME /etc/nginx/conf.d
 EXPOSE 80 443
-CMD ["entrypoint.sh"]
+CMD ["/entrypoint.sh"]
