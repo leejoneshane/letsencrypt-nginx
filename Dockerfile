@@ -3,7 +3,9 @@ FROM nginx:alpine
 ENV EMAIL your@mail.addr
 ENV DOMAIN server.tld
 
+ADD nginx.conf /etc/nginx/nginx.conf
 ADD default.conf /etc/nginx/conf.d/default.conf
+ADD tcp.conf /etc/nginx/conf.d/tcp.conf
 ADD openldap.conf /etc/nginx/example/openldap.conf
 ADD nextcloud.conf /etc/nginx/example/nextcloud.conf
 ADD crontab /var/spool/cron/crontabs/certbot-renew
