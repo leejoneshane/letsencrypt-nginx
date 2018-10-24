@@ -6,19 +6,21 @@ if [ ! -f /etc/letsencrypt/dhparam.pem ]; then
 fi
 
 # Initial certificate request, but skip if cached
-if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
-  certbot certonly --webroot \
-   --webroot-path=/usr/share/nginx/html \
-   --domain ${DOMAIN} \
-   --email "${EMAIL}" --agree-tos
+if [[ "${NOSSL}" == "no" ]]; then
+   if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
+      certbot certonly --webroot \
+      --webroot-path=/usr/share/nginx/html \
+      --domain ${DOMAIN} \
+      --email "${EMAIL}" --agree-tos
    
-  cd /etc/letsencrypt
-  ln -s live/${DOMAIN}/cert.pem cert.pem
-  ln -s live/${DOMAIN}/chain.pem chain.pem
-  ln -s live/${DOMAIN}/fullchain.pem fullchain.pem
-  ln -s live/${DOMAIN}/privkey.pem privkey.pem  
-else
-  certbot renew
+      cd /etc/letsencrypt
+      ln -s live/${DOMAIN}/cert.pem cert.pem
+      ln -s live/${DOMAIN}/chain.pem chain.pem
+      ln -s live/${DOMAIN}/fullchain.pem fullchain.pem
+      ln -s live/${DOMAIN}/privkey.pem privkey.pem  
+   else
+      certbot renew
+   fi
 fi
 
 sed -i "s/\<DOMAIN\>/${DOMAIN}/g" /etc/nginx/conf.d/default.conf
