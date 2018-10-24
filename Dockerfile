@@ -2,6 +2,7 @@ FROM nginx:alpine
 
 ENV EMAIL your@mail.addr
 ENV DOMAIN server.tld
+ENV NOSSL no
 
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD default.conf /etc/nginx/conf.d/default.conf
