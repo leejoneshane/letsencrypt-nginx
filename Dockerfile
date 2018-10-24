@@ -16,7 +16,8 @@ RUN apk update  \
     && apk add --no-cache certbot acme-client openssl ca-certificates \
     && rm -rf /var/cache/apk/* \
     && chmod 711 /entrypoint.sh \
-    && mkdir -p /usr/share/nginx/html/.well-known/acme-challagme
+    && mkdir -p /usr/share/nginx/html/.well-known/acme-challagme \
+    && chmod 0777 /usr/share/nginx/html/.well-known/acme-challagme
 
 VOLUME /etc/letsencrypt
 VOLUME /etc/nginx/conf.d
