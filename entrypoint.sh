@@ -19,7 +19,7 @@ if [[ "${NOSSL}" == "no" ]]; then
       ln -s live/${DOMAIN}/fullchain.pem fullchain.pem
       ln -s live/${DOMAIN}/privkey.pem privkey.pem  
    else
-      certbot renew
+      crontab /etc/certbot-renew
    fi
 fi
 
