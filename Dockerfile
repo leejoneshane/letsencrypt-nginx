@@ -9,7 +9,7 @@ ADD default.conf /etc/nginx/conf.d/default.conf
 ADD tcp.conf /etc/nginx/conf.d/tcp.conf
 ADD openldap.conf /etc/nginx/example/openldap.conf
 ADD nextcloud.conf /etc/nginx/example/nextcloud.conf
-ADD crontab /var/spool/cron/crontabs/certbot-renew
+ADD crontab /etc/certbot-renew
 ADD entrypoint.sh /entrypoint.sh
 
 RUN apk update  \
