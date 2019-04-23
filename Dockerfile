@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:1.13-alpine
 
 ENV EMAIL your@mail.addr
 ENV DOMAIN server.tld
